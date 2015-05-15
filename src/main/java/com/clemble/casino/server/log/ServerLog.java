@@ -1,7 +1,7 @@
 package com.clemble.casino.server.log;
 
 import com.clemble.casino.CreatedAware;
-import com.clemble.casino.log.ClembleLogError;
+import com.clemble.casino.log.ClientError;
 import com.clemble.casino.player.PlayerAware;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,14 +16,14 @@ public class ServerLog implements PlayerAware, CreatedAware {
     @Id
     final private String id;
     final private String player;
-    final private ClembleLogError error;
+    final private ClientError error;
     final private DateTime created;
 
     @JsonCreator
     public ServerLog(
         @JsonProperty("id") String id,
         @JsonProperty("player") String player,
-        @JsonProperty("error") ClembleLogError error,
+        @JsonProperty("error") ClientError error,
         @JsonProperty("created") DateTime created) {
         this.id = id;
         this.player = player;
@@ -39,7 +39,7 @@ public class ServerLog implements PlayerAware, CreatedAware {
         return player;
     }
 
-    public ClembleLogError getError() {
+    public ClientError getError() {
         return error;
     }
 

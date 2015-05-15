@@ -2,6 +2,7 @@ package com.clemble.casino.server.log.spring;
 
 import com.clemble.casino.server.log.controller.ClembleLogController;
 import com.clemble.casino.server.log.repository.ServerLogRepository;
+import com.clemble.casino.server.player.notification.SystemNotificationService;
 import com.clemble.casino.server.spring.common.CommonSpringConfiguration;
 import com.clemble.casino.server.spring.common.MongoSpringConfiguration;
 import com.clemble.casino.server.spring.common.SpringConfiguration;
@@ -23,8 +24,8 @@ public class LogSpringConfiguration implements SpringConfiguration {
     }
 
     @Bean
-    public ClembleLogController logController(ServerLogRepository logRepository) {
-        return new ClembleLogController(logRepository);
+    public ClembleLogController logController(SystemNotificationService notificationService, ServerLogRepository logRepository) {
+        return new ClembleLogController(logRepository, notificationService);
     }
 
 }
