@@ -56,9 +56,8 @@ public class ServerLog implements PlayerAware, CreatedAware {
         ServerLog serverLog = (ServerLog) o;
 
         if (!error.equals(serverLog.error)) return false;
-        if (!player.equals(serverLog.player)) return false;
+        return player.equals(serverLog.player);
 
-        return true;
     }
 
     @Override
